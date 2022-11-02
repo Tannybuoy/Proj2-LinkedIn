@@ -1,0 +1,381 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/* CUSTOM CSS RESET */
+html{
+    font-family: 'Source Sans 3', Arial, Helvetica, sans-serif;
+    
+}
+html * {
+    box-sizing: border-box;
+}
+
+main{
+    margin:30px;
+}
+header {
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+}
+
+.heading_nav{
+    height: 50px;
+}
+
+
+
+h1{
+    font-weight: 700;
+    font-size: 28px;
+    color: black;
+}
+
+.btn-top{
+    position:relative;
+    background: transparent;
+    height: 41px;
+    width: 41px;
+    border-radius: 25px;
+    border-width: 1px;
+    /* SOLVED why is the color showing half white and half grey border? need to declare solid */
+    border-style: solid;
+    border-color: #bfbfbf;
+    margin:5px;
+}
+
+.btn-top:nth-child(2){
+    border-color: #555555;
+}
+.btn-top:hover{
+    background-color: #F3F3F3;
+    border-width: 3px;
+    border-color:#3D3D3D;
+}
+
+
+
+.fa-chevron-left{
+    color: #bfbfbf;
+    font-size:20px
+}
+
+.btn-top:hover .fa-chevron-left{
+    color:#3D3D3D;
+}
+
+.fa-chevron-right{
+    color: #555555;
+    font-size:20px
+}
+
+.btn-top:hover .fa-chevron-right{
+    color:#3D3D3D;
+}
+
+
+section{
+    display:flex;
+    flex-direction:row;
+    justify-content: flex-start;
+    overflow: hidden ;
+}
+
+.card{
+    display:flex;
+    flex-direction:column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 269px;
+    height: 295px;
+    margin:12px;
+    margin-top:52px;
+    
+    position: relative;
+    
+}
+
+.card:hover{
+    margin-top:0px;
+    width: 383px;
+    height: 550px;
+    /* SOLVED: PUTS BORDER AROUND ALL .cardS HOW TO REMOVE. Use card:hover card*/
+    /* border: 1px solid #D9D9D9;  */
+    border:1px solid #555555;
+    /*  ISSUE: how to have blurred box shadow */
+    /* box-shadow: 1px 1px 1px black; */
+}
+
+.card:hover .card{
+    border-width:0px;
+}
+
+.bounding-box {
+    width: 269px;
+    height: 149px;
+    position: relative;
+    transition: height 1s ease-in-out;
+    /* ISSUE: the return transition happens in a very weird way */
+    /* transition: 0.2s ease-in-out all; */
+
+}
+
+/* SOLVED this doesn't work if width:100% done wrt div, you forgot to set div dimensions on hover */
+.card:hover .bounding-box{
+    width: 100%;
+    height: 217px;
+    
+}
+
+.content{
+    padding-left: 3px;
+    padding-top: 10px;
+    transition: all 0.5s ease;
+}
+.card:hover .content{
+    width: 100%;
+    height: auto;
+    padding: 20px;
+}
+
+.bounding-box img{
+    width: 100%;
+    height: 100%;
+    border: 1px solid #D9D9D9;
+    object-fit: cover; 
+    /* center center alignment on object fit */
+}
+
+/* SOLVED: doesn't seem to work */
+.card:hover img{
+    border: 0px solid;
+}
+
+/* SOLVED: Unable to right align the button and the time. USe top and right and declare parent element as relative */
+.btn{
+    /* SOLVED what to do if button on image, absolute or relative? absolute seems like */
+    position:absolute;
+    background: transparent;
+    top: 10px;
+    right: 10px;
+    height: 41px;
+    width: 41px;
+    border-radius: 25px;
+    border-width: 1px;
+    /* SOLVED why is the color showing half white and half grey border? need to declare solid */
+    border-style: solid;
+    opacity:0%;
+    transition: 0.2s linear all;
+}
+
+.card:hover .btn{
+    border-color: white;
+    background: black;
+    opacity:60%;
+    transition: 0.2s 0.4s linear all;
+}
+/* ISSUE How to figure out em and rem values */
+
+/* SOLVED: How to add custom icons, like linkedin learning and bookmark. Fontawesome or bootstrap */
+.fa-close {
+    color: white;
+  }
+
+.popular {
+    position:absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 5px;
+    left: 5px;
+    background: #FFFFFF;
+    border: 1px solid #B5B5B5;
+    border-radius: 2px;
+    height: 26px;
+    width: 87px;
+
+}
+
+.popular p{
+    font-family: 'Source Sans 3';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 23px;
+    color: #191919;
+}
+/* SOLVED stuggle on how to make popular div disappear? just use opacity */
+.card:hover .popular{
+    opacity:0%;
+}
+
+
+.time {
+    position:absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #555555;
+    border-top-left-radius: 2px;
+    width: 59px;
+    height: 18px;
+    bottom: 1px;
+    right: 1px;
+}
+
+.card:hover .time {
+    opacity: 0%;
+}
+
+.time p{
+    font-family: 'Source Sans 3';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 23px;
+    /* identical to box height */
+
+    letter-spacing: -0.015em;
+
+    color: #FFFFFF;
+    opacity: 100%;
+
+}
+
+
+
+.content p{
+    display:block;
+    position: relative;
+    font-family: 'Source Sans 3';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    color: #808080;
+    opacity:100%;
+}
+
+.card:hover .content p{
+    line-height: 26px;
+    font-size: 18px;
+}
+
+.card:hover .content p:nth-child(3), p:nth-child(4){
+    margin-bottom: 10px;
+}
+
+/* ISSUE: Too many nth childs of paragraphs, is there a better solution? */
+.card:hover .content p:nth-child(5){
+    font-size: 16px;
+    margin-bottom: 24px;
+}
+
+.card .disappear{
+    opacity:0%;
+}
+
+.card:hover .disappear{
+    opacity:100%;
+}
+
+.fa-linkedin-square{
+    font-size:24px;
+    color:#0072b1"
+}
+
+/* ISSUE: the hover is acting all weird because of the div of paras? */
+.extra {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.content .extra p:nth-child(2){
+    padding: 10px 20px 5px 20px;
+}
+
+.save{
+    color:transparent;
+}
+.save:hover{
+    background-color: #F3F3F3;
+    border-radius: 5px;
+}
+.fa-bookmark-o{
+    font-size:20px;
+    font-weight:800;
+    color:#808080;
+}
+
+.bolded{
+    font-weight:600;
+}
+
+h2 {
+    display:block;
+    font-family: 'Source Sans 3';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 31px;
+    letter-spacing: -0.01em;
+    color: #191919;
+    margin-bottom: 6px;
+}
+
+.card:hover h2{
+    font-family: 'Source Sans 3';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 37px;
+    color: #191919;
+}
